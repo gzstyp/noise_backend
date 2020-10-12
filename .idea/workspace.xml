@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="958872e6-5b12-478c-8910-5464d7fe056e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/dao/src/main/resources/mapper/core/sys_department.xml" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\MyTools\ideaIU2020.2.2\plugins\maven\lib\maven3" />
+        <option name="threads" value="4" />
+        <option name="usePluginRegistry" value="true" />
+        <option name="userSettingsFile" value="D:\MyTools\maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1icXF0FuUkTDjZYaiWsRUEAOKAK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fwtai.web.controller" />
+      <recent name="com.fwtai.tool" />
+      <recent name="com.fwtai.service.core" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\workspace\tfkj\noise_backend\web\src\main\resources" />
+      <recent name="F:\workspace\tfkj\noise_backend\dao\src\main\resources\mapper\core" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="LaunchWeb" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="web" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.fwtai.LaunchWeb" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
+  <component name="SpringGeneralSettings">
+    <option name="showMultipleContextsPanel" value="false" />
+    <option name="showProfilesPanel" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration useDefault="false">D:\MyTools\TortoiseSVN</configuration>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="715" y="225" width="618" height="600" key="#xdebugger.evaluate" timestamp="1602321606922">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="715" y="225" width="618" height="600" key="#xdebugger.evaluate/0.0.1920.1050@0.0.1920.1050" timestamp="1602321606922" />
+    <state width="486" height="466" key="DebuggerActiveHint" timestamp="1602504507510">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="486" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1602504507510" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1602488484706">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1602488484706" />
+    <state x="763" y="424" key="Github.CreateGistDialog" timestamp="1602473381625">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="763" y="424" key="Github.CreateGistDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1602473381625" />
+    <state width="1876" height="182" key="GridCell.Tab.0.bottom" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state width="1876" height="182" key="GridCell.Tab.0.center" timestamp="1602507623828">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623828" />
+    <state width="1876" height="182" key="GridCell.Tab.0.left" timestamp="1602507623828">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623828" />
+    <state width="1876" height="182" key="GridCell.Tab.0.right" timestamp="1602507623828">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623828" />
+    <state width="1876" height="182" key="GridCell.Tab.1.bottom" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state width="1876" height="182" key="GridCell.Tab.1.center" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state width="1876" height="182" key="GridCell.Tab.1.left" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state width="1876" height="182" key="GridCell.Tab.1.right" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state width="1876" height="182" key="GridCell.Tab.2.bottom" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.2.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state width="1876" height="182" key="GridCell.Tab.2.center" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.2.center/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state width="1876" height="182" key="GridCell.Tab.2.left" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.2.left/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state width="1876" height="182" key="GridCell.Tab.2.right" timestamp="1602507623829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1876" height="182" key="GridCell.Tab.2.right/0.0.1920.1050@0.0.1920.1050" timestamp="1602507623829" />
+    <state x="616" y="237" key="run.anything.popup" timestamp="1602474954344">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="237" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1602474954344" />
+  </component>
+</project>
