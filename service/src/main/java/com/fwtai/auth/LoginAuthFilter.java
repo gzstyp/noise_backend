@@ -44,7 +44,7 @@ public class LoginAuthFilter extends UsernamePasswordAuthenticationFilter{
         }
         final String username = params.get(p_username);
         final String password = params.get(p_password);
-        final String ip = request.getRemoteAddr();
+        final String ip = ToolClient.getIp(request);
         final boolean blocked = toolAttack.isBlocked(ip);
         if(blocked){
             final String msg = "帐号或密码错误次数过多,IP<br/>"+ip+"<br/>已被系统屏蔽,请30分钟后重试!";
@@ -56,10 +56,10 @@ public class LoginAuthFilter extends UsernamePasswordAuthenticationFilter{
             //将账号、密码装入UsernamePasswordAuthenticationToken中,即这个方法是没有角色或权限,只是单纯的保存用户名和密码
             final UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username,password);// 这个方法是没有角色或权限
             setDetails(request,authRequest);
-            asyncService.addLogs(username,1,"192.168.3.108");
+            asyncService.addLogs(username,1,ip);
             return this.getAuthenticationManager().authenticate(authRequest);
         }else{
-            asyncService.addLogs(username,0,"192.168.3.108");
+            asyncService.addLogs(username,0,ip);
             toolAttack.loginFailed(ip);
             /*final boolean bl = toolAttack.getCount(ip) > 4;
             if(blocked || bl){
