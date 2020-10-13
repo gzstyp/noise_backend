@@ -1,5 +1,6 @@
 package com.fwtai.service;
 
+import com.fwtai.bean.PageFormData;
 import com.fwtai.core.AsyncDao;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -36,6 +37,25 @@ public class AsyncService{
             public void run(){
                 try {
                     asyncDao.updateSucceed(username);
+                } catch (Exception e) {
+                    threadPool.shutdown();
+                }
+            }
+        });
+    }
+
+    @Async
+    public void addLogs(final String username,final Integer flag,final String ip){
+        final ExecutorService threadPool = Executors.newCachedThreadPool();
+        threadPool.execute(new Runnable(){
+            @Override
+            public void run(){
+                try {
+                    final PageFormData pageForm = new PageFormData();
+                    pageForm.put("user_name",username);
+                    pageForm.put("flag",flag);
+                    pageForm.put("login_ip",ip);
+                    asyncDao.addLogs(pageForm);
                 } catch (Exception e) {
                     threadPool.shutdown();
                 }

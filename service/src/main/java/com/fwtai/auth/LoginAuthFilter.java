@@ -2,6 +2,7 @@ package com.fwtai.auth;
 
 import com.fwtai.config.ConfigFile;
 import com.fwtai.entity.User;
+import com.fwtai.service.AsyncService;
 import com.fwtai.service.core.UserService;
 import com.fwtai.tool.ToolAttack;
 import com.fwtai.tool.ToolClient;
@@ -11,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -25,6 +27,9 @@ public class LoginAuthFilter extends UsernamePasswordAuthenticationFilter{
 
     @Autowired
     private ToolAttack toolAttack;
+
+    @Resource
+    private AsyncService asyncService;
 
     @Override
     public Authentication attemptAuthentication(final HttpServletRequest request,final HttpServletResponse response) throws AuthenticationException{
@@ -51,8 +56,10 @@ public class LoginAuthFilter extends UsernamePasswordAuthenticationFilter{
             //将账号、密码装入UsernamePasswordAuthenticationToken中,即这个方法是没有角色或权限,只是单纯的保存用户名和密码
             final UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username,password);// 这个方法是没有角色或权限
             setDetails(request,authRequest);
+            asyncService.addLogs(username,1,"192.168.3.108");
             return this.getAuthenticationManager().authenticate(authRequest);
         }else{
+            asyncService.addLogs(username,0,"192.168.3.108");
             toolAttack.loginFailed(ip);
             /*final boolean bl = toolAttack.getCount(ip) > 4;
             if(blocked || bl){
