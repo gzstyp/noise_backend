@@ -25,6 +25,11 @@
         )
     </update>
 
+    <!-- 添加时选中的节点自动设为父节点 -->
+    <update id="setIsParent" parameterType="String">
+        UPDATE sys_department set isParent = 1 WHERE kid = #{parent_id} LIMIT 1
+    </update>
+
     <!-- 编辑数据 -->
     <update id="edit" parameterType="HashMap">
         UPDATE SYS_DEPARTMENT

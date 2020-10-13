@@ -49,7 +49,7 @@ public class DepartmentService{
         final boolean use = departmentDao.queryTotalDep(kid);/*查询该节点是否还有子节点*/
         if(use){
             /*编辑时如果该节点还有子节点则更新为是父节点*/
-            if(isParent.equals("0")){
+            if(("0").equals(isParent)){
                 return ToolClient.createJson(ConfigFile.code199,"该节点含子节点不能更改类型");
             }
         }

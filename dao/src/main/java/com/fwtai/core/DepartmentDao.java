@@ -26,6 +26,7 @@ public class DepartmentDao{
 
     @Transactional
     public int add(final PageFormData pageFormData){
+        dao.execute("sys_department.setIsParent",pageFormData);
         return dao.execute("sys_department.add",pageFormData);
     }
 
