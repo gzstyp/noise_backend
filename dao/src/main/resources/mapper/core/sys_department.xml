@@ -45,8 +45,8 @@
 	</delete>
 
     <!-- 查询组织机构是否已被使用 -->
-    <select id="queryOccupyDep" resultType="Integer" parameterType="String">
-        SELECT COUNT(KID) TOTAL FROM sys_dep_user WHERE DEP_ID = #{kid}
+    <select id="queryOccupyDep" resultType="String" parameterType="String">
+        SELECT user_id FROM sys_user_info WHERE dep_id = #{kid} LIMIT 1
     </select>
 
     <!-- 查询是否是父节点,如果删除当前的节点后的父节点没有子节点的话,更新为没有子节点1 -->

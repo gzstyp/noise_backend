@@ -66,8 +66,8 @@ public class DepartmentService{
         final String validate = ToolClient.validateField(pageFormData,p_kid);
         if(validate != null)return validate;
         final String kid = pageFormData.getString(p_kid);
-        final int total = departmentDao.queryOccupyDep(kid);
-        if(total > 0){
+        final String exist = departmentDao.queryOccupyDep(kid);
+        if(exist != null){
             return ToolClient.createJson(ConfigFile.code199,"该节点已被使用不能删除");
         }
         final boolean use = departmentDao.queryTotalDep(kid);

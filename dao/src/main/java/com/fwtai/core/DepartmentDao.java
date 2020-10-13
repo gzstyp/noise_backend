@@ -46,8 +46,8 @@ public class DepartmentDao{
         return dao.queryForListHashMap("sys_department.queryMenu",id);
     }
 
-    public int queryOccupyDep(final String kid){
-        return dao.queryForInteger("sys_department.queryOccupyDep",kid);
+    public String queryOccupyDep(final String kid){
+        return dao.queryForString("sys_department.queryOccupyDep",kid);
     }
 
     public boolean queryTotalDep(final String kid){
