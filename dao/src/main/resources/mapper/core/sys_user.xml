@@ -361,4 +361,32 @@
         SELECT MENU_ID FROM SYS_USER_MENU SUM WHERE USER_ID = #{userId})LT,SYS_MENU SM WHERE LT.MENU_ID = SM.KID
         ) LT,SYS_MENU SM WHERE SM.PID = LT.PID AND SM.URL = #{url}
     </select>
+
+    <!-- 获取部门信息 -->
+    <select id="getDeptData" resultType="HashMap" parameterType="String">
+        select sdt.kid,sdt.parent_id pid,sdt.dep_name name,sdt.isParent subset from sys_department sdt
+    </select>
+    <!-- 绑定部门,基于主键user_id的存在就更新,否则新增操作 -->
+    <update id="updateDeptData" parameterType="HashMap">
+        INSERT IGNORE INTO SYS_USER_INFO (
+        <trim suffixOverrides=",">
+            <if test="dep_id != null">dep_id,</if>
+            <if test="real_name != null">real_name,</if>
+            <if test="user_id != null">user_id</if>
+        </trim>
+        ) VALUES (
+        <trim suffixOverrides=",">
+            <if test="dep_id != null">#{dep_id},</if>
+            <if test="real_name != null">#{real_name},</if>
+            <if test="user_id != null">#{user_id}</if>
+        </trim>
+        )
+        ON DUPLICATE KEY UPDATE
+        <trim suffixOverrides=",">
+            <if test="dep_id != null">dep_id = #{dep_id},</if>
+            <if test="real_name != null">real_name = #{real_name}</if>
+        </trim>
+    </update>
+
+
 </mapper>

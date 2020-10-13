@@ -125,6 +125,20 @@ public class UserController{
         ToolClient.responseJson(userService.getMenuData(ToolClient.getFormData(request)).replaceAll("\"false\"","false").replaceAll("\"true\"","true"),response);
     }
 
+    /**获取部门信息*/
+    @PreAuthorize("hasAuthority('user_row_bindDep_query')")
+    @GetMapping("/getDeptData")
+    public void getDeptData(final HttpServletRequest request,final HttpServletResponse response){
+        ToolClient.responseJson(userService.getDeptData(ToolClient.getFormData(request)).replaceAll("\"false\"","false").replaceAll("\"true\"","true"),response);
+    }
+
+    /**绑定部门*/
+    @PreAuthorize("hasAuthority('user_row_bindDep_save')")
+    @PostMapping("/saveDeptData")
+    public void saveDeptData(final HttpServletRequest request,final HttpServletResponse response){
+        ToolClient.responseJson(userService.saveDeptData(ToolClient.getFormData(request)),response);
+    }
+
     @GetMapping("/notAuthorized")
     public void notAuthorized(final HttpServletResponse response){
         ToolClient.responseJson(ToolClient.notAuthorized(),response);

@@ -83,6 +83,11 @@ public class UserDao{
         return dao.execute("sys_user.saveOwnMenu",lists);
     }
 
+    /**绑定部门*/
+    public int saveDeptData(final PageFormData pageFormData){
+        return dao.execute("sys_user.updateDeptData",pageFormData);
+    }
+
     //删除之前的角色,重新分配角色
     @Transactional
     public int saveBatchUserRole(final ArrayList<String> listUserIds,final ArrayList<HashMap<String,String>> lists){
@@ -178,5 +183,9 @@ public class UserDao{
 
     public List<HashMap<String,String>> getMenuData(final String userId){
         return dao.queryForListString("sys_user.getMenuData",userId);
+    }
+
+    public List<HashMap<String,String>> getDeptData(final String userId){
+        return dao.queryForListString("sys_user.getDeptData",userId);
     }
 }

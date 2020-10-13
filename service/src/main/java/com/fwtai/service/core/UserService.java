@@ -247,6 +247,16 @@ public class UserService{
         }
     }
 
+    /**绑定部门*/
+    public String saveDeptData(final PageFormData pageFormData){
+        final String p_userId = "user_id";
+        final String p_depId = "dep_id";
+        final String validate = ToolClient.validateField(pageFormData,p_userId,p_depId);
+        if(validate != null)return validate;
+        final int rows = userDao.saveDeptData(pageFormData);
+        return ToolClient.executeRows(rows,"操作成功","操作失败,请检查是否重复绑定");
+    }
+
     public String delByKeys(final PageFormData pageFormData){
         final String p_ids = "ids";
         final String validate = ToolClient.validateField(pageFormData,p_ids);
@@ -334,6 +344,14 @@ public class UserService{
         if(validate != null)return validate;
         final String userId = pageFormData.getString(p_userId);
         return ToolClient.queryJson(userDao.getMenuData(userId));
+    }
+
+    public String getDeptData(final PageFormData pageFormData){
+        final String p_userId = "userId";
+        final String validate = ToolClient.validateField(pageFormData,p_userId);
+        if(validate != null)return validate;
+        final String userId = pageFormData.getString(p_userId);
+        return ToolClient.queryJson(userDao.getDeptData(userId));
     }
 
     //仅保存userId,userName,roles 即可
