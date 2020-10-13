@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 组织机构
@@ -94,5 +95,11 @@ public class DepartmentService{
         } catch (Exception e){
             return ToolClient.exceptionJson();
         }
+    }
+
+    /**查询登录者所拥有的权限*/
+    public String queryPermissions(){
+        final List<String> permissions = departmentDao.queryPermissions();
+        return ToolClient.queryJson(permissions);
     }
 }

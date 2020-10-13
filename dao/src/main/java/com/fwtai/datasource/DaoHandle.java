@@ -419,11 +419,22 @@ public class DaoHandle{
         map.put(ConfigFile.rows,sqlSession.selectList(sqlMapIdListData,params));
         final String url = LocalUrl.get();
         if(url != null){
-            final HashMap<String,String> permissions = new HashMap<String,String>();
+            final HashMap<String,String> permissions = new HashMap<String,String>(2);
             permissions.put("userId",LocalUserId.get());
             permissions.put("url",url);
             map.put(ConfigFile.permissions,sqlSession.selectList("sys_user.permissions",permissions));
         }
         return map;
+    }
+
+    /*指定请求url且该url已获取获取才能获取权限数据,仅需指定获取类似于列表数据的url即,前提是必须拥有该权限*/
+    public List<String> queryPermissions(final String url){
+        if(url != null){
+            final HashMap<String,String> permissions = new HashMap<String,String>(2);
+            permissions.put("userId",LocalUserId.get());
+            permissions.put("url",url);
+            return sqlSession.selectList("sys_user.permissions",permissions);
+        }
+        return null;
     }
 }

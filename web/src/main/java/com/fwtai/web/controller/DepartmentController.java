@@ -54,4 +54,11 @@ public class DepartmentController{
         final String json = service.queryAllDepartment(ToolClient.getFormData(request)).replaceAll("\"false\"", "false").replaceAll("\"true\"", "true");
         ToolClient.responseJson(json,response);
     }
+
+    /**查询登录者所拥有的权限,一般是listData即*/
+    @PreAuthorize("hasAuthority('department_queryAllDepartment')")
+    @GetMapping("/permissions")
+    public void permissions(final HttpServletResponse response){
+        ToolClient.responseJson(service.queryPermissions(),response);
+    }
 }

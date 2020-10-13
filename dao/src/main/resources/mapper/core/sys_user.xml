@@ -352,7 +352,7 @@
 
     <!-- 控制页面的按钮是否显示(页面按钮默认是隐藏)获取当前登录id的按钮权限 -->
     <select id="permissions" resultType="String" parameterType="HashMap">
-         SELECT LT.PERMISSION FROM (SELECT SM.PID,SM.PERMISSION
+        SELECT LT.PERMISSION FROM (SELECT SM.PID,SM.PERMISSION
         FROM (
         SELECT SRM.MENU_ID FROM SYS_USER_ROLE SUR
         LEFT JOIN SYS_ROLE_MENU SRM ON SRM.ROLE_ID = SUR.ROLE_ID

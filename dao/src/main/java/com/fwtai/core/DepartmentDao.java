@@ -53,4 +53,9 @@ public class DepartmentDao{
     public boolean queryTotalDep(final String kid){
         return dao.queryForString("sys_department.queryTotalDep",kid) != null;
     }
+
+    /**查询登录者所拥有的权限*/
+    public List<String> queryPermissions(){
+        return dao.queryPermissions("department/queryAllDepartment");
+    }
 }
