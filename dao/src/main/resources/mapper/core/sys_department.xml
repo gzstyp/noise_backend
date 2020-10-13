@@ -11,8 +11,7 @@
             <if test="parent_id != null and parent_id != ''">parent_id,</if>
             <if test="isParent != null and isParent != ''">isParent,</if>
             <if test="seq != null and seq != ''">seq,</if>
-            <if test="creator != null and creator != ''">creator,</if>
-            <if test="description != null and description != ''">description</if>
+            <if test="creator != null and creator != ''">creator</if>
         </trim>
         ) VALUES (
         <trim suffixOverrides=",">
@@ -21,8 +20,7 @@
             <if test="parent_id != null and parent_id != ''">#{parent_id},</if>
             <if test="isParent != null and isParent != ''">#{isParent},</if>
             <if test="seq != null and seq != ''">#{seq},</if>
-            <if test="creator != null and creator != ''">#{creator},</if>
-            <if test="description != null and description != ''">#{description}</if>
+            <if test="creator != null and creator != ''">#{creator}</if>
         </trim>
         )
     </update>
@@ -33,8 +31,7 @@
         <trim prefix="SET" suffixOverrides=",">
             <if test="dep_name != null and dep_name != ''">dep_name = #{dep_name},</if>
             <if test="isParent != null and isParent != ''">isParent = #{isParent},</if>
-            <if test="seq != null and seq != ''">seq = #{seq},</if>
-            <if test="description != null and description != ''">description = #{description}</if>
+            <if test="seq != null and seq != ''">seq = #{seq}</if>
         </trim>
         WHERE kid = #{kid}
     </update>
@@ -65,10 +62,17 @@
 
     <!-- 查询所有的菜单,用于菜单的添加或编辑 -->
     <select id="queryAllDepartment" parameterType="String" resultType="HashMap">
-		SELECT kid id,dep_name name,case when isParent = 0 then 'true' else 'false' end isLeaf,parent_id FROM SYS_DEPARTMENT WHERE parent_id = #{kid}
+		SELECT kid id,dep_name name,seq,case when isParent = 0 then 'true' else 'false' end isLeaf,parent_id FROM SYS_DEPARTMENT WHERE parent_id = #{kid} ORDER BY seq
 	</select>
-    <!--好使!!!-->
+
+    <!--示例代码,请勿删除,好使!!!-->
     <select id="queryMenu" parameterType="String" resultType="HashMap">
 		SELECT kid id,name,pid,case when subset = 0 then 'true' else 'false' end isLeaf from sys_menu WHERE pid = #{kid}
 	</select>
+
+    <!-- 查询是否仅有一条数据 -->
+    <select id="queryTotal" resultType="Integer">
+        SELECT COUNT(kid) total FROM sys_department LIMIT 1
+    </select>
+
 </mapper>

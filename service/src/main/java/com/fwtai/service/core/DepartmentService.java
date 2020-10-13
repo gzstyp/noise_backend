@@ -45,19 +45,15 @@ public class DepartmentService{
         final String validateField = ToolClient.validateField(pageFormData,"kid");
         if(validateField != null)return validateField;
         final String kid = pageFormData.getString("kid");
+        final String isParent = pageFormData.getString("isParent");
         final boolean use = departmentDao.queryTotalDep(kid);/*查询该节点是否还有子节点*/
         if(use){
             /*编辑时如果该节点还有子节点则更新为是父节点*/
+            if(isParent.equals("0")){
+                return ToolClient.createJson(ConfigFile.code199,"该节点含子节点不能更改类型");
+            }
         }
-
-        /*
-        final int rows = dao.execute("sys_department.edit",pageFormData);
-        final String parent_id = pageFormData.getString("kid");
-        final int total = dao.queryForInteger("sys_department.queryTotalDep",parent_id);*//*查询该节点是否hi啊有子节点*//*
-        if(total > 0){
-            dao.execute("sys_department.updateParents",parent_id);*//*
-        }*/
-        return ToolClient.executeRows(1);
+        return ToolClient.executeRows(departmentDao.edit(pageFormData));
     }
 
     /**行删除*/
@@ -73,6 +69,10 @@ public class DepartmentService{
         final boolean use = departmentDao.queryTotalDep(kid);
         if(use){
             return ToolClient.createJson(ConfigFile.code199,"该节点还有子节点不能删除");
+        }
+        final int total = departmentDao.queryTotal();
+        if(total == 1){
+            return ToolClient.createJson(ConfigFile.code199,"跟节点仅能改名不能删除");
         }
         return ToolClient.executeRows(departmentDao.delById(kid));
     }

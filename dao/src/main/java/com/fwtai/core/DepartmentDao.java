@@ -29,7 +29,6 @@ public class DepartmentDao{
         return dao.execute("sys_department.add",pageFormData);
     }
 
-    @Transactional
     public int edit(final PageFormData pageFormData){
         return dao.execute("sys_department.edit",pageFormData);
     }
@@ -42,8 +41,8 @@ public class DepartmentDao{
         return dao.queryForListHashMap("sys_department.queryAllDepartment",id);
     }
 
-    public List<HashMap<String,Object>> queryMenu(final String id){
-        return dao.queryForListHashMap("sys_department.queryMenu",id);
+    public int queryTotal(){
+        return dao.queryForInteger("sys_department.queryTotal");
     }
 
     public String queryOccupyDep(final String kid){
