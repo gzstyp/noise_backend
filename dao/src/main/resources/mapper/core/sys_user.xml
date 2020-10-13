@@ -174,8 +174,10 @@
 
     <!-- 列表的数据 -->
     <select id="listData" parameterType="HashMap" resultType="HashMap">
-        select su.kid,su.user_name,su.error_count,DATE_FORMAT(su.add_date,'%Y-%m-%d') add_date,su.enabled,DATE_FORMAT(su.logintime,'%Y-%m-%d %H:%i') logintime
+        select su.kid, su.user_name, su.error_count, sdt.dep_name, su.enabled, DATE_FORMAT(su.logintime, '%Y-%m-%d %H:%i') logintime
         from sys_user su
+        left join sys_user_info suio on suio.user_id = su.kid
+        left join sys_department sdt on sdt.kid = suio.dep_id
         <include refid="sql_where_listData"/>
         <choose>
             <when test="order != null and column != null">
