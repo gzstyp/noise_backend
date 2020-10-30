@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 
 /**
- * 通用的删除、批量删除
+ * 仅适用于单表的删除、批量删除,详情
  * @作者 田应平
  * @版本 v1.0
  * @创建时间 2020-09-27 17:09
