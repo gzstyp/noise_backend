@@ -39,4 +39,11 @@ public class DataService{
         }
         return ToolClient.executeRows(daoHandle.execute(sqlMapId,lists),"操作成功","数据已不存在,刷新重试");
     }
+
+    protected final String queryById(final PageFormData formData,final String sqlMapId){
+        final String p_id = "id";
+        final String validate = ToolClient.validateField(formData,p_id);
+        if(validate != null)return validate;
+        return ToolClient.queryJson(daoHandle.queryForHashMap(sqlMapId,formData.getString(p_id)));
+    }
 }
