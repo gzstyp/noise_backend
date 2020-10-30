@@ -1092,6 +1092,56 @@ public final class ToolClient implements Serializable{
         return json.toJSONString();
     }
 
+    public static PageFormData dataMysql(final PageFormData pageFormData){
+        Integer size = pageFormData.getInteger("pageSize");//每页大小
+        Integer current = pageFormData.getInteger("current");//当前页
+        if(size == null || current == null) return null;
+        if(current <= 0){
+            current = 1;
+        }
+        if(size > 200){
+            size = ConfigFile.size_default;
+        }
+        String sort = pageFormData.getString("sort");
+        String column = pageFormData.getString("column");
+        if(column != null){
+            if(sort != null){
+                sort = ToolString.sqlInject(sort);
+                sort = sort.replace("ascending","ASC").replace("descending","DESC");
+            }else{
+                sort = "DESC";
+            }
+            column = ToolString.sqlInject(column);
+            if(column != null && sort != null){
+                pageFormData.put("column",column.toUpperCase());//排序字段 order by name desc
+                pageFormData.put("order",sort);//排序关键字(升序|降序)
+            }
+        }
+        pageFormData.remove("sort");
+        pageFormData.put(ConfigFile.section,(current - 1) * size);//读取区间
+        pageFormData.put(ConfigFile.pageSize,size);//每页大小
+        pageFormData.remove("current");
+        return pageFormData;
+    }
+
+    public static String jsonPage(final Object listData,final Integer total,final List<String> permissions){
+        final JSONObject json = new JSONObject();
+        if(total == null || total == 0){
+            json.put(ConfigFile.code,ConfigFile.code201);
+            json.put(ConfigFile.msg,ConfigFile.msg201);
+            return json.toJSONString();
+        }else{
+            if(permissions != null && permissions.size() > 0){
+                json.put(ConfigFile.permissions,permissions);
+            }
+            json.put(ConfigFile.code,ConfigFile.code200);
+            json.put(ConfigFile.msg,ConfigFile.msg200);
+            json.put(ConfigFile.total,total);
+            json.put(ConfigFile.data,listData);
+            return json.toJSONString();
+        }
+    }
+
     /**
      * 从请求参数或者header获取token
      * @param request
