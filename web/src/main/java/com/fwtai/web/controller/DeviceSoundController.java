@@ -62,7 +62,7 @@ public class DeviceSoundController{
         ToolClient.responseJson(devicesoundService.delByKeys(ToolClient.getFormData(request)),response);
     }
 
-    /**获取数据*/
+    /**获取设备列表*/
     @PreAuthorize("hasAuthority('deviceSound_btn_listData')")
     @GetMapping("/listData")
     public void listData(final HttpServletRequest request,final HttpServletResponse response){

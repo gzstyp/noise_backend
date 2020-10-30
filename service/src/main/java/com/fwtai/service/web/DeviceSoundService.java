@@ -100,4 +100,11 @@ public class DeviceSoundService{
             return ToolClient.dataTableException(formData.get("sEcho"));
         }
     }
+
+    public String listData2(PageFormData formData){
+        formData = ToolClient.dataMysql(formData);
+        if(formData == null)return ToolClient.jsonValidateField();
+        final HashMap<String,Object> map = devicesoundDao.listData(formData);
+        return ToolClient.jsonPage(map.get(ConfigFile.rows),(Integer) map.get(ConfigFile.total),(List<String>)map.get(ConfigFile.permissions));
+    }
 }
