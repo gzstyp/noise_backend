@@ -1126,7 +1126,7 @@ public final class ToolClient implements Serializable{
 
     public static String jsonPage(final Object listData,final Integer total,final List<String> permissions){
         final JSONObject json = new JSONObject();
-        if(total == null || total == 0){
+        if(listData == null || total == 0){
             json.put(ConfigFile.code,ConfigFile.code201);
             json.put(ConfigFile.msg,ConfigFile.msg201);
             return json.toJSONString();
