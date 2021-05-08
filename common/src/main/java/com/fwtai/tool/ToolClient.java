@@ -916,20 +916,7 @@ public final class ToolClient implements Serializable{
      * @主页 www.fwtai.com
     */
     public static PageFormData getFormData(final HttpServletRequest request){
-        final PageFormData params = new PageFormData();
-        final Enumeration<String> paramNames = request.getParameterNames();
-        while(paramNames.hasMoreElements()){
-            final String key = paramNames.nextElement().trim();
-            if(key.equals("_"))continue;
-            String value = request.getParameter(key);
-            if(value != null && value.length() > 0){
-                value = value.trim();
-                if(checkNull(value))
-                    continue;
-                params.put(key,value);
-            }
-        }
-        return params;
+        return new PageFormData(request);
     }
 
     private static boolean checkNull(final String value){
