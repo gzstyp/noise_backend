@@ -50,6 +50,6 @@ public class LoginLogsController{
 
     @GetMapping("/notAuthorized")
     public void notAuthorized(final HttpServletResponse response){
-        ToolClient.responseJson(ToolClient.notAuthorized(),response);
+        ToolClient.responseJson(ToolClient.accessDenied(),response);
     }
 }

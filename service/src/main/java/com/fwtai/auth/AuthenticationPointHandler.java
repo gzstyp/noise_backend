@@ -22,7 +22,7 @@ public class AuthenticationPointHandler implements AuthenticationEntryPoint{
     public void commence(final HttpServletRequest request,final HttpServletResponse response,final AuthenticationException exception) throws IOException, ServletException{
         final Integer flag = FlagToken.get();//值若为空说明是未带token且未放行的url而请求导致的
         System.out.println("flag-->"+flag);
-        String json = ToolClient.notAuthorized();
+        String json = ToolClient.accessDenied();
         if(flag != null){
             switch (flag){
                 case 1:
